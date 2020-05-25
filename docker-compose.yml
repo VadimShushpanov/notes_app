@@ -1,0 +1,9 @@
+version: "2"
+services:
+  todos:
+    build: ./
+    container_name: notes_app
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./app:/home/app
