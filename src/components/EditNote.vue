@@ -2,12 +2,19 @@
   <div class="edit-note">
     <div class="header">
       <div class="note-title" :class="{ editNoteTitle: note == editedNote }">
-        <div class="circle" title="Return to notes page" @click="returnToPageNotes()">&larr;</div>
+        <div
+          class="circle"
+          title="Return to notes page"
+          @click="returnToPageNotes()"
+        >
+          &larr;
+        </div>
 
         <label
           @dblclick="editNoteTitle(note)"
           title="Double click for edit note title"
-        >{{ note.title }}</label>
+          >{{ note.title }}</label
+        >
 
         <input
           class="edit"
@@ -23,7 +30,11 @@
 
     <div class="note-setting__panel">
       <form @submit.prevent="submit">
-        <input type="text" placeholder="What needs to be done?" v-model="title" />
+        <input
+          type="text"
+          placeholder="What needs to be done?"
+          v-model="title"
+        />
         <button title="Create todo" type="submit">
           <i class="fa fa-plus-circle" aria-hidden="true"></i>
         </button>
@@ -72,7 +83,8 @@
             <label
               @dblclick="editTodoTitle(todoItem)"
               title="Double click for edit"
-            >{{ todoItem.title }}</label>
+              >{{ todoItem.title }}</label
+            >
             <button @click="removeTodoItem(todoItem)" title="Delete todo">
               <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
             </button>
@@ -94,13 +106,15 @@
         v-if="isConfirmPopupVisible"
         @closePopup="closePopupConfirm"
         @deleteNote="deleteNoteItem"
-      >{{ note.title }}</DeleteNotePopup>
+        >{{ note.title }}</DeleteNotePopup
+      >
 
       <CancelEditPopup
         v-if="isCancelEditPopupVisible"
         @closePopup="closeCancelEditPopup"
         @previousStateNote="previousStateNote"
-      >{{ note.title }}</CancelEditPopup>
+        >{{ note.title }}</CancelEditPopup
+      >
     </div>
   </div>
 </template>
@@ -183,9 +197,8 @@ export default {
     previousStateNote() {
       this.notes = JSON.parse(localStorage.getItem("notes")) || "[]";
 
-      let notChangedNote = this.notes[
-        this.notes.findIndex((n) => n.id === this.note.id)
-      ];
+      let notChangedNote =
+        this.notes[this.notes.findIndex((n) => n.id === this.note.id)];
 
       this.note.title = notChangedNote.title;
       this.note.todoList = notChangedNote.todoList;

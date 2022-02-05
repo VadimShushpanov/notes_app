@@ -6,9 +6,8 @@ export default {
       localStorage.setItem("notes", JSON.stringify(state.notes));
     },
     saveEditedNote(state, editedNote) {
-      state.notes[
-        state.notes.findIndex((n) => n.id === editedNote.id)
-      ] = editedNote;
+      state.notes[state.notes.findIndex((n) => n.id === editedNote.id)] =
+        editedNote;
       localStorage.setItem("notes", JSON.stringify(state.notes));
     },
     deleteNote(state, note) {

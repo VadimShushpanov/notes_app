@@ -15,12 +15,17 @@
           v-if="note.isConfirmPopupVisible"
           @closePopup="closePopupConfirm"
           @deleteNote="deleteNoteItem"
-        >{{ note.title }}</DeleteNotePopup>
+          >{{ note.title }}</DeleteNotePopup
+        >
 
         <h5 class="note-name">{{ note.title }}</h5>
         <div class="todo-list">
           <div v-if="note.todoList">
-            <div class="todo-item" v-for="todoItem in note.todoList" :key="todoItem.id">
+            <div
+              class="todo-item"
+              v-for="todoItem in note.todoList"
+              :key="todoItem.id"
+            >
               <span class="todo-item__name">{{ todoItem.title }}</span>
             </div>
           </div>
